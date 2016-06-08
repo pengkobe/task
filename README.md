@@ -1,4 +1,10 @@
-# task
-record things to be done
-link: [http://yipeng.info/projects/task/tasks.html](http://yipeng.info/projects/task/tasks.html)
-build with primary javascript
+# 任务管理web app
+record things to be done. build with primary javascript  
+
+### demo
+[http://yipeng.info/projects/task/tasks.html](http://yipeng.info/projects/task/tasks.html)
+
+### protocal
+MIT
+
+
