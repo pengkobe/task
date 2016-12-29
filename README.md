@@ -1,10 +1,10 @@
-# 任务管理web app
-record things to be done. build with primary javascript  
+# Task
+> a web app build to record things to be done. built with primary javascript  
 
-### demo
+### Demo
 [http://yipeng.info/projects/task/tasks.html](http://yipeng.info/projects/task/tasks.html)
 
-### protocal
-MIT
+### License
+MIT@yipeng.info
 
 
