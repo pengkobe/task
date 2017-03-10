@@ -1,7 +1,7 @@
 var mongodb = require('./db'),
   marked = require('marked'),
   ObjectID = require('mongodb').ObjectID,
-  formatTime = require('../../public/common/js/plugins/format_time');
+  formatTime = require('../common/format_time');
 
 marked.setOptions({
   renderer: new marked.Renderer(),

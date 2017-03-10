@@ -134,7 +134,7 @@
                 }
                 add(tpl.substr(cursor, tpl.length - cursor));
                 code += 'return r.join("");';
-                var tasks = data;
+                var tasks = data ? data : [];
                 // 第一个参数指定参数名称,第二个参数为方法体，最后一个参数传数据
                 return new Function('tasks', code.replace(/[\r\t\n]/g, ''))(tasks);
             };
@@ -248,7 +248,11 @@
                         var data = eval("(" + xmlHttpReq.responseText + ")");
                         var task_ul = document.getElementById("task_ul");
                         var topEle = document.querySelectorAll(".title-day")[0];
-                        var newest = topEle.innerHTML;
+                        var newest = "";
+                        if (topEle) {
+                            newest = topEle.innerHTML;
+                        }
+
                         var now = new Date();
                         var years = now.getFullYear();
                         var months = now.getMonth() + 1;
@@ -270,7 +274,7 @@
                         tips_div.style.display = "block";
                         if (data.success == true) {
                             tips_div.innerHTML = '新增成功.';
-                            target.title.value ="";
+                            target.title.value = "";
                         } else {
                             tips_div.innerHTML = '新增失败.';
                         }
@@ -280,7 +284,7 @@
                         return;
                     }
                 };
-                
+
                 xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xmlHttpReq.send(encodeURI("title=" + target.title.value + "&isPrivate=" + target.isPrivate.checked));
                 e.preventDefault();

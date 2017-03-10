@@ -2,29 +2,23 @@
 <html>
 
 <head>
-  <title>kobepeng | 任务</title>
+  <title>yipeng | 任务</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="description">
   <meta property="og:type" content="website">
   <meta property="og:title" content="kobepeng task page">
-  <meta property="og:url" content="http://new.kobepeng.com">
+  <meta property="og:url" content="http://task.yipeng.info">
   <meta property="og:site_name" content="kobepeng个人站">
   <meta property="og:description" content="kobepeng任务分享页面">
-  <link rel="stylesheet" href="../../public/common/css/lib/kissy_reset.css">
+  <link rel="stylesheet" href="./kissy_reset.css">
   <link href="tasks.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript">
-      var lastDate ='';
+    var lastDate = '';
   </script>
 </head>
 
 <body>
-  <!--<div id="timer">
-    <div id="timer_day"></div>
-    <div class="timer-label">天</div>
-    <div id="timer_Hour"></div>
-    <div class="timer-label">小时</div>
-  </div>-->
 
   <ul class="task-filter">
     <li id="filter_all" class="active">全部<span style="font-size: 12px">(滚动加载)</span></li>
@@ -82,8 +76,8 @@
           <li <% status %> litag class="htmltransition">
             <% if (!task.finished) { %>
               <h4>
-                <span id="<% task._id%>" class="unfinish-title" realTitle="<% task.title %>" > <% task._m_title %> </span>
-                </h4>
+                <span id="<% task._id%>" class="unfinish-title" realTitle="<% task.title %>"> <% task._m_title %> </span>
+              </h4>
 
               <span class="time">创建:<% task.createTime.minute %> </span>
               <% if (task.isPrivate) { %>
@@ -93,8 +87,10 @@
                   <a name="finish" titleid="<% task._id%>" href="javascript:void(0);">完成</a>&nbsp;
                   <% } else { %>
                     <h4>
-               <del id="<% task._id%>" realTitle="<% task.title %>"><% task._m_title %></del>
-                </h4>
+                      <del id="<% task._id%>" realTitle="<% task.title %>">
+                        <% task._m_title %>
+                      </del>
+                    </h4>
 
                     <span class="time">创建:<% task.createTime.minute %> </span>
                     <% if (task.isPrivate) { %>

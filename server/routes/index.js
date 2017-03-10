@@ -5,7 +5,7 @@ var crypto = require('crypto'),
   User = require('../models/user.js');
 
 app.get('/', function (req, res) {
-  res.sendfile("tasks.html");
+  res.redirect('/tasks.html');
 });
 
 app.get('/reg', checkNotLogin);
@@ -49,7 +49,7 @@ app.post('/reg', function (req, res) {
       }
       req.session.user = user;
       req.flash('success', '注册成功!');
-      res.redirect('/blog');
+      res.redirect('/tasks.html');
     });
   });
 });
@@ -78,12 +78,12 @@ app.post('/login', function (req, res) {
     //检查密码是否一致
     if (user.password != password) {
       req.flash('error', '密码错误!');
-      return res.redirect('/login');//密码错误则跳转到登录页
+      return res.redirect('/tasks.html');//密码错误则跳转到登录页
     }
     //用户名密码都匹配后，将用户信息存入 session
     req.session.user = user;
     req.flash('success', '登陆成功!');
-    res.redirect('/blog');//登陆成功后跳转到主页
+    res.redirect('/tasks.html');//登陆成功后跳转到主页
   });
 });
 

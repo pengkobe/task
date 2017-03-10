@@ -32,7 +32,7 @@ app.use(logger({ stream: accessLog }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '.'), { maxAge: 86400000 }));
+app.use(express.static(path.join(__dirname, './public'), { maxAge: 86400000 }));
 
 // session mongodb
 var session = require('express-session');

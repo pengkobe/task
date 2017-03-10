@@ -1,3 +1,7 @@
 node_modules/*
 *.log
 .DS_Store
+server/access.log
+server/error.log
+access.log
+error.log
