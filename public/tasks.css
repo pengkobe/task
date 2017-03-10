@@ -160,7 +160,7 @@ ul.task-filter >li.active{
               word-wrap: break-word;
               display: inline-block;
               padding-left:28px;
-              background:url(../../public/img/doing.png) no-repeat left top;
+              background:url(/img/doing.png) no-repeat left top;
               background-size: 25px;
             }
             .tasks {}
@@ -178,7 +178,7 @@ ul.task-filter >li.active{
                     opacity: .5;
                     padding-left:25px;
                     display: inline-block;
-                    background:url(../../public/img/finished.png) no-repeat left top;
+                    background:url(/img/finished.png) no-repeat left top;
                     background-size: 25px;
                     width: 100%;
                 }
