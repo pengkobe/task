@@ -1,8 +1,8 @@
 # Task
-> a web app build to record things to be done. built with primary javascript  
+> a web app to record things to be done. built with primary javascript  
 
 ### Demo
-[http://yipeng.info/projects/task/tasks.html](http://yipeng.info/projects/task/tasks.html)
+[http://task.yipeng.info](http://task.yipeng.info)
 
 ### License
 MIT@yipeng.info
