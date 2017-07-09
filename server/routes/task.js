@@ -64,7 +64,6 @@ app.post('/getbynum', function (req, res) {
       tasks = [];
       console.log(error);
     }
-
     res.json(tasks);
   });
 });
@@ -114,8 +113,6 @@ app.get('/:_id/delete', function (req, res) {
       res.json({success:true});
     });
 });
-
-
 
 app.get('/:_id/finish', checkLogin);
 app.get('/:_id/finish', function (req, res) {
