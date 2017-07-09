@@ -5,6 +5,9 @@
 ;
 (function (window, undefined) {
 
+    var numOfPage = 10;
+    var page = 1;
+
     // 标识
     var finishedload = false;
     var lockloading = false;
@@ -209,6 +212,38 @@
             }
         },
 
+        // loadData2: function (tag) {
+        //     if (hasFilter) {
+        //         return;
+        //     }
+        //     var that = this;
+        //     // || helper.getScrollTop() == 0(使得滚动碰触上边界也能加载)
+        //     if (tag || (helper.getScrollTop() + helper.getClientHeight() == helper.getScrollHeight())) {
+        //         //加载完成后不再请求
+        //         if (!finishedload) {
+        //             // 锁住后不再请求
+        //             if (!lockloading) {
+        //                 lockloading = true;
+        //                 document.getElementById('loading_div').style.display = "block";
+        //                 // 2s后解锁
+        //                 setTimeout(function () {
+        //                     lockloading = false;
+        //                     document.getElementById('loading_div').style.display = "none";
+        //                     console.log('lock released!');
+        //                 }, 2000);
+        //                 //设置请求（没有真正打开，true：表示异步
+        //                 xmlHttpReq.open("post", "/task/getbynum", true);
+        //                 xmlHttpReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        //                 xmlHttpReq.onreadystatechange = function () {
+        //                     that.ajaxState(xmlHttpReq);
+        //                 };
+        //                 console.log('send...');
+        //                 xmlHttpReq.send(encodeURI("page=" + page + "&num=" + numOfPage));
+        //             }
+        //         }
+        //     }
+        // },
+
         bindEvents: function () {
             var title;
             var realTitle;
@@ -223,7 +258,6 @@
             window.onscroll = function () {
                 // 使用函数节流
                 helper.throttle(that.loadData, that);
-                // that.loadData();
             }
             // 新增
             post_form = document.getElementById("post_new");
@@ -477,19 +511,20 @@
                         loadCount++;
                     } else {
                         finishedload = true;
+                        document.getElementById('loading_div').style.display = "block";
+                        document.getElementById('loading_div').innerHTML = '已全部加载完成.';
+                        // 2s后解锁
+                        setTimeout(function () {
+                            document.getElementById('loading_div').style.display = "none";
+                        }, 2000);
+                        console.log('finishedload');
                     }
-                    document.getElementById('loading_div').style.display = "block";
-                    document.getElementById('loading_div').innerHTML = '已全部加载完成.';
-                    // 2s后解锁
-                    setTimeout(function () {
-                        document.getElementById('loading_div').style.display = "none";
-                    }, 2000);
-                    console.log('finishedload');
-                    return;
+
                 } else {
+                    loadCount = 0;
                     that.loadlines(data);
-                    lastdate.setDate(lastdate.getDate() - 5);
                 }
+                lastdate.setDate(lastdate.getDate() - 5);
             }
         },
         // 这里使用传统的拼字符串形式构建［待改成模板引擎的方式］
